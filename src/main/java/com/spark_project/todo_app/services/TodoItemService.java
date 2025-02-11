@@ -27,4 +27,10 @@ public class TodoItemService {
         todoItemRepository.deleteById(id);
     }
 
+    public TodoItem updateTodoItemState(Long id, boolean isCompleted) {
+        TodoItem todoItem = todoItemRepository.findById(id).get();
+        todoItem.setCompleted(!isCompleted);
+        return todoItemRepository.save(todoItem);
+    }
+
 }
