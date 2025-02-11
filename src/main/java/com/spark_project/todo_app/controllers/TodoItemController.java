@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/todos")
@@ -29,6 +31,11 @@ public class TodoItemController {
     @GetMapping
     public List<TodoItem> retrieveAllTodoItems() {
         return todoItemService.getAllTodoItems();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTodoItem(@PathVariable Long id) {
+        todoItemService.deleteTodoItem(id);
     }
 
 }

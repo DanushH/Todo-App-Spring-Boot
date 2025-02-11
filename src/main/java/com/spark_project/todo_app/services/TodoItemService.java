@@ -23,4 +23,8 @@ public class TodoItemService {
         return todoItemRepository.findAll();
     }
 
+    public void deleteTodoItem(Long id) {
+        todoItemRepository.deleteById(id);
+    }
+
 }
