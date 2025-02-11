@@ -1,5 +1,7 @@
 package com.spark_project.todo_app.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.spark_project.todo_app.models.TodoItem;
@@ -15,6 +17,10 @@ public class TodoItemService {
 
     public TodoItem saveTodoItem(TodoItem todoItem) {
         return todoItemRepository.save(todoItem);
+    }
+
+    public List<TodoItem> getAllTodoItems() {
+        return todoItemRepository.findAll();
     }
 
 }

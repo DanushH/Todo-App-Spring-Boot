@@ -8,6 +8,10 @@ import com.spark_project.todo_app.services.TodoItemService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
 @RestController
 @RequestMapping("/todos")
 public class TodoItemController {
@@ -20,6 +24,11 @@ public class TodoItemController {
     @PostMapping
     public TodoItem createTodoItem(@RequestBody TodoItem todoItem) {
         return todoItemService.saveTodoItem(todoItem);
+    }
+
+    @GetMapping
+    public List<TodoItem> retrieveAllTodoItems() {
+        return todoItemService.getAllTodoItems();
     }
 
 }
