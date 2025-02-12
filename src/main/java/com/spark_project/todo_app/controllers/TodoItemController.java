@@ -12,8 +12,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 @RequestMapping("/todos")
@@ -39,9 +39,9 @@ public class TodoItemController {
         todoItemService.deleteTodoItem(id);
     }
 
-    @PutMapping("{id}/toggle")
+    @PatchMapping("/{id}/toggle")
     public TodoItem toggleTodoItemCompletion(@PathVariable Long id) {
-        TodoItem updatedTodoItem = todoItemService.updateTodoItemState(id, false);
+        TodoItem updatedTodoItem = todoItemService.updateTodoItemState(id);
         return updatedTodoItem;
     }
 
